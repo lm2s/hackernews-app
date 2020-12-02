@@ -14,6 +14,7 @@ class PostCell: UITableViewCell {
     lazy var urlLabel: UILabel = UILabel()
     lazy var scoreLabel: UILabel = UILabel()
     lazy var commentCountLabel: UILabel = UILabel()
+    lazy var dateLabel: UILabel = UILabel()
 
     private let verticalStackView: UIStackView = UIStackView()
     private let bottomStackView: UIStackView = UIStackView()
@@ -69,15 +70,27 @@ class PostCell: UITableViewCell {
         commentCountLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         bottomStackView.addArrangedSubview(commentCountLabel)
 
+        dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        bottomStackView.addArrangedSubview(dateLabel)
+
         bottomStackView.addArrangedSubview(UIView())
     }
 }
 
 extension PostCell {
+    static var dateFormatter: RelativeDateTimeFormatter = {
+        let df = RelativeDateTimeFormatter()
+        df.unitsStyle = .abbreviated
+        df.locale = Locale(identifier: "US")
+        return df
+    }()
+
     static func configureCell(_ cell: PostCell, post: Network.Model.Post) {
         cell.titleLabel.text = post.title
         cell.urlLabel.text = post.url.host ?? ""
         cell.scoreLabel.text = "⬆️ \(post.score)"
         cell.commentCountLabel.text = "💬 \(post.numberOfComments)"
+        cell.dateLabel.text = "🕓 \(dateFormatter.localizedString(for: post.createdAt, relativeTo: Date()))"
     }
 }
+

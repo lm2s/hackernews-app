@@ -29,14 +29,16 @@ class HackerNewsAPI {
         persistenceController.viewContext.performAndWait {
             let managedPosts = ManagedPost.fetchAll(in: self.persistenceController.viewContext)
 
-            self.posts = managedPosts.map {
-                let id = Int($0.id)
-                let title = $0.title
-                let url = URL(string: $0.url)!
-                let score = Int($0.score)
-                let comments = ($0.comments as? Array<Int>) ?? []
+            self.posts = managedPosts.enumerated().map {
+                let id = Int($1.id)
+                let createdAt = $1.createdAt as Date
+                let title = $1.title
+                let url = URL(string: $1.url)!
+                let score = Int($1.score)
+                let comments = ($1.comments as? Array<Int>) ?? []
+                let index = $0
 
-                return Network.Model.Post(id: id, title: title, url: url, score: score, comments: comments)
+                return Network.Model.Post(id: id, createdAt: createdAt, title: title, url: url, score: score, comments: comments, index: index)
             }
         }
     }
@@ -55,13 +57,14 @@ extension HackerNewsAPI {
                 var posts: [Network.Model.Post] = []
                 let dispatchGroup = DispatchGroup()
 
-                let postsIdsToFetch = postsIds[0..<min(30, postsIds.count)]
+                let postsIdsToFetch = postsIds[0..<min(100, postsIds.count)]
 
-                postsIdsToFetch.forEach {
+                postsIdsToFetch.enumerated().forEach { (index, id) in
                     dispatchGroup.enter()
 
-                    self.fetchPost(id: $0) { post in
-                        if let p = post {
+                    self.fetchPost(id: id) { post in
+                        if var p = post {
+                            p.index = index
                             posts.append(p)
                         }
                         dispatchGroup.leave()
@@ -111,10 +114,12 @@ extension HackerNewsAPI {
             posts.forEach {
                 let managedPost = ManagedPost(context: self.persistenceController.viewContext)
                 managedPost.id = Int64($0.id)
+                managedPost.createdAt = $0.createdAt as NSDate
                 managedPost.title = $0.title
                 managedPost.url = $0.url.absoluteString
                 managedPost.score = Int64($0.score)
                 managedPost.comments = $0.comments as NSArray
+                managedPost.index = Int64($0.index)
             }
 
             do {

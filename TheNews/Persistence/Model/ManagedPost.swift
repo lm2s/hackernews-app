@@ -10,16 +10,18 @@ import CoreData
 
 class ManagedPost: NSManagedObject {
     @NSManaged public var id: Int64
+    @NSManaged public var createdAt: NSDate
     @NSManaged public var title: String
     @NSManaged public var url: String
     @NSManaged public var score: Int64
     @NSManaged public var comments: NSArray
+    @NSManaged public var index: Int64
 }
 
 extension ManagedPost {
     static func fetchAll(in context: NSManagedObjectContext) -> [ManagedPost] {
         let request = NSFetchRequest<ManagedPost>(entityName: "Post")
-        //request.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
         let posts = try? context.fetch(request)
         return posts ?? []
     }

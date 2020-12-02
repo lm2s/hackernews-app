@@ -8,33 +8,7 @@
 import CoreData
 
 class PersistenceController {
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "TheNews")
-
-        if inMemory {
-            let storeDescription = NSPersistentStoreDescription()
-            storeDescription.type = NSInMemoryStoreType
-            container.persistentStoreDescriptions = [storeDescription]
-        }
-
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
+    private(set) var persistentContainer: NSPersistentContainer!
 
     let inMemory: Bool
     var viewContext: NSManagedObjectContext { return persistentContainer.viewContext }
@@ -43,6 +17,21 @@ class PersistenceController {
         self.inMemory = inMemory
 
         CommentsValueTransformer.register()
+
+        let (container, isSetup) = loadContainer()
+        if !isSetup {
+            destroy(container: container)
+
+            let (newContainer, isSetup) = loadContainer()
+            if !isSetup {
+                fatalError()
+            } else {
+                self.persistentContainer = newContainer
+            }
+        }
+        else {
+            self.persistentContainer = container
+        }
     }
 
     // MARK: - Core Data Saving support
@@ -59,5 +48,32 @@ class PersistenceController {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+
+    private func loadContainer() -> (NSPersistentContainer, Bool) {
+        let container = NSPersistentContainer(name: "TheNews")
+
+        let storeDescription = NSPersistentStoreDescription()
+        storeDescription.shouldAddStoreAsynchronously = false
+        storeDescription.type = inMemory ? NSInMemoryStoreType : NSSQLiteStoreType
+        storeDescription.url = storeURL
+
+        container.persistentStoreDescriptions = [storeDescription]
+
+        var isSetup: Bool = false
+
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            isSetup = error == nil
+        })
+
+        return (container, isSetup)
+    }
+
+    private func destroy(container: NSPersistentContainer) {
+        _ = try? FileManager.default.removeItem(at: storeURL)
+    }
+
+    var storeURL: URL {
+        return NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("store.db")
     }
 }
