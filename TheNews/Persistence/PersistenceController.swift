@@ -10,6 +10,13 @@ import CoreData
 class PersistenceController {
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TheNews")
+
+        if inMemory {
+            let storeDescription = NSPersistentStoreDescription()
+            storeDescription.type = NSInMemoryStoreType
+            container.persistentStoreDescriptions = [storeDescription]
+        }
+
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -29,9 +36,12 @@ class PersistenceController {
         return container
     }()
 
+    let inMemory: Bool
     var viewContext: NSManagedObjectContext { return persistentContainer.viewContext }
 
-    init() {
+    init(inMemory: Bool = false) {
+        self.inMemory = inMemory
+
         CommentsValueTransformer.register()
     }
 

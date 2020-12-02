@@ -26,7 +26,7 @@ class PostListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "HackerNews"
+        self.title = "Hacker News"
 
         setupNavigationBar()
         setupViews()

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,23 @@
 		F3F2BBEB2577B4A3001B6E1E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2BBEA2577B4A3001B6E1E /* Post.swift */; };
 		F3F2BBF02577B8FA001B6E1E /* ManagedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2BBEF2577B8FA001B6E1E /* ManagedPost.swift */; };
 		F3F2BBF42577B967001B6E1E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2BBF32577B967001B6E1E /* PersistenceController.swift */; };
+		F3F2BC4E2577C876001B6E1E /* TheNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2BC4D2577C876001B6E1E /* TheNewsTests.swift */; };
+		F3F2BC5D2577D2AA001B6E1E /* topstories.json in Resources */ = {isa = PBXBuildFile; fileRef = F3F2BC5C2577D2AA001B6E1E /* topstories.json */; };
+		F3F2BC622577D69D001B6E1E /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3F2BC612577D69D001B6E1E /* OHHTTPStubsSwift */; };
+		F3F2BC662577D823001B6E1E /* item_25275637.json in Resources */ = {isa = PBXBuildFile; fileRef = F3F2BC652577D823001B6E1E /* item_25275637.json */; };
+		F3F2BC6A2577D995001B6E1E /* item_25271791.json in Resources */ = {isa = PBXBuildFile; fileRef = F3F2BC692577D995001B6E1E /* item_25271791.json */; };
+		F3F2BC6E2577D9A2001B6E1E /* item_25273907.json in Resources */ = {isa = PBXBuildFile; fileRef = F3F2BC6D2577D9A2001B6E1E /* item_25273907.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3F2BC502577C876001B6E1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F358E5C72577954000D59ADC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F358E5CE2577954000D59ADC;
+			remoteInfo = TheNews;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F358E5CF2577954100D59ADC /* TheNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +56,13 @@
 		F3F2BBEA2577B4A3001B6E1E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F3F2BBEF2577B8FA001B6E1E /* ManagedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedPost.swift; sourceTree = "<group>"; };
 		F3F2BBF32577B967001B6E1E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		F3F2BC4B2577C876001B6E1E /* TheNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F2BC4D2577C876001B6E1E /* TheNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheNewsTests.swift; sourceTree = "<group>"; };
+		F3F2BC4F2577C876001B6E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3F2BC5C2577D2AA001B6E1E /* topstories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topstories.json; sourceTree = "<group>"; };
+		F3F2BC652577D823001B6E1E /* item_25275637.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = item_25275637.json; sourceTree = "<group>"; };
+		F3F2BC692577D995001B6E1E /* item_25271791.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item_25271791.json; sourceTree = "<group>"; };
+		F3F2BC6D2577D9A2001B6E1E /* item_25273907.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item_25273907.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +73,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3F2BC482577C876001B6E1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3F2BC622577D69D001B6E1E /* OHHTTPStubsSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				F358E5D12577954100D59ADC /* TheNews */,
+				F3F2BC4C2577C876001B6E1E /* TheNewsTests */,
 				F358E5D02577954100D59ADC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F358E5CF2577954100D59ADC /* TheNews.app */,
+				F3F2BC4B2577C876001B6E1E /* TheNewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,15 +105,13 @@
 		F358E5D12577954100D59ADC /* TheNews */ = {
 			isa = PBXGroup;
 			children = (
-				F358E5F825779D1300D59ADC /* HackerNewsAPI.swift */,
+				F358E5D22577954100D59ADC /* AppDelegate.swift */,
 				F358E5EF257795D500D59ADC /* Network */,
 				F358E5EE257795CD00D59ADC /* Persistence */,
-				F358E5D22577954100D59ADC /* AppDelegate.swift */,
 				F3F2BBDB2577AE20001B6E1E /* UI */,
 				F358E5DE2577954400D59ADC /* Assets.xcassets */,
 				F358E5E02577954400D59ADC /* LaunchScreen.storyboard */,
 				F358E5E32577954400D59ADC /* Info.plist */,
-				F358E5DB2577954100D59ADC /* TheNews.xcdatamodeld */,
 			);
 			path = TheNews;
 			sourceTree = "<group>";
@@ -98,8 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				F3F2BBE92577B499001B6E1E /* Model */,
-				F358E5F0257795E100D59ADC /* NetworkService.swift */,
 				F358E5F325779C9C00D59ADC /* Requests */,
+				F358E5F0257795E100D59ADC /* NetworkService.swift */,
+				F358E5F825779D1300D59ADC /* HackerNewsAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -142,9 +174,23 @@
 		F3F2BBEE2577B8E8001B6E1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F358E5DB2577954100D59ADC /* TheNews.xcdatamodeld */,
 				F3F2BBEF2577B8FA001B6E1E /* ManagedPost.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F3F2BC4C2577C876001B6E1E /* TheNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3F2BC4D2577C876001B6E1E /* TheNewsTests.swift */,
+				F3F2BC4F2577C876001B6E1E /* Info.plist */,
+				F3F2BC5C2577D2AA001B6E1E /* topstories.json */,
+				F3F2BC652577D823001B6E1E /* item_25275637.json */,
+				F3F2BC692577D995001B6E1E /* item_25271791.json */,
+				F3F2BC6D2577D9A2001B6E1E /* item_25273907.json */,
+			);
+			path = TheNewsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +213,27 @@
 			productReference = F358E5CF2577954100D59ADC /* TheNews.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F3F2BC4A2577C876001B6E1E /* TheNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3F2BC542577C876001B6E1E /* Build configuration list for PBXNativeTarget "TheNewsTests" */;
+			buildPhases = (
+				F3F2BC472577C876001B6E1E /* Sources */,
+				F3F2BC482577C876001B6E1E /* Frameworks */,
+				F3F2BC492577C876001B6E1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3F2BC512577C876001B6E1E /* PBXTargetDependency */,
+			);
+			name = TheNewsTests;
+			packageProductDependencies = (
+				F3F2BC612577D69D001B6E1E /* OHHTTPStubsSwift */,
+			);
+			productName = TheNewsTests;
+			productReference = F3F2BC4B2577C876001B6E1E /* TheNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,6 +246,10 @@
 					F358E5CE2577954000D59ADC = {
 						CreatedOnToolsVersion = 12.2;
 					};
+					F3F2BC4A2577C876001B6E1E = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = F358E5CE2577954000D59ADC;
+					};
 				};
 			};
 			buildConfigurationList = F358E5CA2577954000D59ADC /* Build configuration list for PBXProject "TheNews" */;
@@ -190,11 +261,15 @@
 				Base,
 			);
 			mainGroup = F358E5C62577954000D59ADC;
+			packageReferences = (
+				F3F2BC602577D69D001B6E1E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+			);
 			productRefGroup = F358E5D02577954100D59ADC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				F358E5CE2577954000D59ADC /* TheNews */,
+				F3F2BC4A2577C876001B6E1E /* TheNewsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,6 +281,17 @@
 			files = (
 				F358E5E22577954400D59ADC /* LaunchScreen.storyboard in Resources */,
 				F358E5DF2577954400D59ADC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F2BC492577C876001B6E1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3F2BC5D2577D2AA001B6E1E /* topstories.json in Resources */,
+				F3F2BC6A2577D995001B6E1E /* item_25271791.json in Resources */,
+				F3F2BC662577D823001B6E1E /* item_25275637.json in Resources */,
+				F3F2BC6E2577D9A2001B6E1E /* item_25273907.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +317,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3F2BC472577C876001B6E1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3F2BC4E2577C876001B6E1E /* TheNewsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3F2BC512577C876001B6E1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F358E5CE2577954000D59ADC /* TheNews */;
+			targetProxy = F3F2BC502577C876001B6E1E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F358E5E02577954400D59ADC /* LaunchScreen.storyboard */ = {
@@ -399,6 +501,46 @@
 			};
 			name = Release;
 		};
+		F3F2BC522577C876001B6E1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FGA89NJBJF;
+				INFOPLIST_FILE = TheNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.hellobit.TheNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheNews.app/TheNews";
+			};
+			name = Debug;
+		};
+		F3F2BC532577C876001B6E1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FGA89NJBJF;
+				INFOPLIST_FILE = TheNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.hellobit.TheNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheNews.app/TheNews";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -420,7 +562,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F3F2BC542577C876001B6E1E /* Build configuration list for PBXNativeTarget "TheNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3F2BC522577C876001B6E1E /* Debug */,
+				F3F2BC532577C876001B6E1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3F2BC602577D69D001B6E1E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3F2BC612577D69D001B6E1E /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3F2BC602577D69D001B6E1E /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F358E5DB2577954100D59ADC /* TheNews.xcdatamodeld */ = {

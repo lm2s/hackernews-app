@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let persistenceController = PersistenceController()
-
         let networkService = NetworkService(baseURL: URL(string: "https://hacker-news.firebaseio.com/v0")!)
         let hackerNewsAPI = HackerNewsAPI(networkService: networkService, persistenceController: persistenceController)
 
