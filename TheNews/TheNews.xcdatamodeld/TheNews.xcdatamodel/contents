@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20A5395g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Post" representedClassName=".ManagedPost" syncable="YES">
+        <attribute name="comments" attributeType="Transformable" valueTransformerName="CommentsValueTransformer"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Post" positionX="-63" positionY="-18" width="128" height="104"/>
+    </elements>
+</model>
