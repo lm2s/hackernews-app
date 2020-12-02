@@ -57,7 +57,7 @@ class PostCell: UITableViewCell {
         ])
 
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         verticalStackView.addArrangedSubview(titleLabel)
 
         urlLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
